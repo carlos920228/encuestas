@@ -3,7 +3,7 @@
     <div class="shadow-lg p-3 mb-5 bg-white rounded m-4">
     <legend>Registro de evaluación</legend>
     <hr>
-    <form method="post" enctype="multipart/form-data">
+    <form method="post" enctype="multipart/form-data" action="<?php echo base_url()?>/evaluación/">
         <div class="form-row">
             <div class="form-group col-md-6">
             <label >Nombre del Maestro</label>
@@ -20,11 +20,11 @@
 			</div>
             <div class="form-group col-md-3" id="modalidades">
                 <label >Modalidad</label>
-                <select id="modalidad" class="form-control">
+                <select id="modalidad" class="form-control" name="modalidad">
                     <option selected>Seleccione</option>
-                    <option>Escolarizado</option>
-                    <option>Mixto</option>
-                    <option>Blended</option>
+                    <option value="Escolarizado">Escolarizado</option>
+                    <option value="Mixto">Mixto</option>
+                    <option value="Blended">Blended</option>
                 </select>
             </div>
         </div>
@@ -37,16 +37,11 @@
             </div>
             <div class="form-group col-md-3">
                 <label for="">Grupo</label>
-                <input type="text" class="form-control" name="nombre" placeholder="EJEMPLO: 101">
+                <input type="text" class="form-control" name="grupo" placeholder="EJEMPLO: 101" value="">
             </div>
             <div class="form-group col-md-3">
                 <label for="">Materia</label>
-                <select id="" class="form-control">
-                    <option selected>Seleccione</option>
-                    <option>Inglés 1</option>
-                    <option>Fundamentos de Administración</option>
-                    <option>Matemáticas Administrativas</option>
-                </select>
+                <input type="text" class="form-control" name="Materia" placeholder="EJEMPLO: 101" value="">
             </div>
             <div class="form-group col-md-3">
                 <label for="" class="font-weight-bold">Seleccione archivo en formato CSV</label>

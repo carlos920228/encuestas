@@ -32,7 +32,7 @@ $('body').on('click','#regisevaluacion', function() {
 $('body').on('change', '#nivel', function() {
     select= document.getElementById("nivel"), //El <select>
     value=select.value,
-    console.log(select.length);
+    console.log(value);
       $.post(dominio+"/evaluacion/cambiocarreras/"+value,{
             }, function(data) {
             $("#carreras").html(data);

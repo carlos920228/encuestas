@@ -57,14 +57,24 @@ class evaluacion extends CI_Controller {
       		redirect('evaluacion','refresh');
 		}
 		
-    }
+	}
+	
+	public function registrar_enc(){
+		$this->load->model('sedd');
+		//recibimos y almacenamos
+		$this->Biblioteca_model->id=$this->input->post('id');
+		//
+		$this->Biblioteca_model->registrar_Car($id);
+
+		redirect('bibliotecaiuv','refresh');
+	}
 
 	public function cambiocarreras($id){
 		switch ($id) {
 			//Licenciatura
 			case 1:
 				echo '<label for="inputState">Carrera</label>
-				<select id="nivel" class="form-control" name="nivel">
+				<select id="nivel" class="form-control" name="carrera">
 				<option selected>Selecione</option>
 				<option value="Lic. en Administración de empresas">Lic. en Administración de empresas</option>
 				<option value="Lic. en Arquitectura y Urbanismo">Lic. en Arquitectura y Urbanismo</option>
@@ -81,7 +91,7 @@ class evaluacion extends CI_Controller {
 			//Maestría
 			case 2:
 				echo '<label for="inputState">Carrera</label>
-				<select id="nivel" class="form-control" name="nivel">
+				<select id="nivel" class="form-control" name="carrera">
 				<option selected>Seleccione</option>
 				<option value="Maestría en Administración de los servicios de la salud">Maestría en Administración de los servicios de la salud</option>
 				<option value="Maestría en Administración de Negocios">Maestría en Administración de Negocios</option>
@@ -96,7 +106,7 @@ class evaluacion extends CI_Controller {
 			//Doctorado
 			case 3:
 				echo '<label for="inputState">Carrera</label>
-				<select id="nivel" class="form-control" name="nivel">
+				<select id="nivel" class="form-control" name="carrera">
 				<option selected>Seleccione</option>
 				<option value="Doctorado en Ciencias Administrativas">Doctorado en Ciencias Administrativas</option>
 				<option value="Doctorado en Ciencias Administrativas con Línea en Administración Pública y Gobierno">Doctorado en Ciencias Administrativas con Línea en Administración Pública y Gobierno</option>
@@ -107,14 +117,14 @@ class evaluacion extends CI_Controller {
 			break;
 			case 'Seleccione':
 				echo '<label for="inputState">Carrera</label>
-				<select id="nivel" class="form-control" name="nivel">
+				<select id="nivel" class="form-control" name="carrera">
 				<option selected>Seleccione un nivel</option>
 				</select>';
 			break;
 			//Doctorado
 			default:
 				echo '<label for="inputState">Carrera</label>
-				<select id="nivel" class="form-control" name="nivel">
+				<select id="nivel" class="form-control" name="carrera">
 				<option selected>Seleccionar</option>
 				<option value="2">Seleccione un nivel</option>
 				</select>';
