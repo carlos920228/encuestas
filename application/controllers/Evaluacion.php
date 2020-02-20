@@ -2,7 +2,7 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 /*
-	SISTEMA DE EVALUACIÓN DEL DESEMPEÑO DOCENTE (SEDD)
+	SISTEMA DE EVALUACIÓN DEL DESEMPEÑO DOCENTE (SEDD) chidori
  */
 
 class evaluacion extends CI_Controller {
