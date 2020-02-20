@@ -60,13 +60,44 @@ class evaluacion extends CI_Controller {
 	}
 	
 	public function registrar_enc(){
-		$this->load->model('sedd');
+		$this->load->model('Sedd');
 		//recibimos y almacenamos
-		$this->Biblioteca_model->id=$this->input->post('id');
+		$this->Sedd->nombre=$this->input->post('nombre');
+		$this->Sedd->nivel=$this->input->post('nivel');
+		$this->Sedd->modalidad=$this->input->post('modalidad');
+		$this->Sedd->carrera=$this->input->post('carrera');
+		$this->Sedd->grupo=$this->input->post('grupo');
+		$this->Sedd->materia=$this->input->post('materia');
 		//
-		$this->Biblioteca_model->registrar_Car($id);
+		$this->Sedd->registrar_enc();
 
-		redirect('bibliotecaiuv','refresh');
+		//Guardamos imagen en el servidor
+        if ($_FILES['file']['size'] == 0 && $_FILES['file']['error'] == 0){ 
+
+        }else{
+
+            $mi_imagen = 'mi_imagen';
+            $valor = $this->input->post("file");
+
+            $config = array(//obtenemos el id del modelo
+            'file_name' => $id.".csv",
+            'upload_path' => "./encuestas/",
+            'allowed_types' => "csv",
+            'overwrite' => TRUE,
+            'max_size' => "4096000", // Can be set to particular file size , here it is 2 MB(2048 Kb)
+            //'max_height' => "768",
+            //'max_width' => "1024"
+            );
+            
+            $this->load->library('upload', $config);
+
+            if (!$this->upload->do_upload()) {
+                echo "<script>alert('¡Archivo guardado!');</script>"; 
+                redirect('evaluacion','refresh');
+            }
+        }
+
+		//redirect('evaluacion','refresh');
 	}
 
 	public function cambiocarreras($id){
@@ -74,8 +105,8 @@ class evaluacion extends CI_Controller {
 			//Licenciatura
 			case 1:
 				echo '<label for="inputState">Carrera</label>
-				<select id="nivel" class="form-control" name="carrera">
-				<option selected>Selecione</option>
+				<select id="carrera" class="form-control" name="carrera">
+				<option selected>Seleccione</option>
 				<option value="Lic. en Administración de empresas">Lic. en Administración de empresas</option>
 				<option value="Lic. en Arquitectura y Urbanismo">Lic. en Arquitectura y Urbanismo</option>
 				<option value="Lic. en Comunicación y Medios Digitales">Lic. en Comunicación y Medios Digitales</option>
@@ -85,13 +116,13 @@ class evaluacion extends CI_Controller {
 				<option value="Lic. en Ingeniería Industrial">Lic. en Ingeniería Industrial</option>
 				<option value="Lic. en Pedagogía">Lic. en Pedagogía</option>
 				<option value="Lic. en Psicología Apliacada">Lic. en Psicología Apliacada</option>
-				<option value="Lic. en Sistemas y Tecnoogías de información">Lic. en Sistemas y Tecnoogías de información</option>
+				<option value="Lic. en Sistemas y Tecnologías de información">Lic. en Sistemas y Tecnologías de información</option>
 				</select>';
 			break;
 			//Maestría
 			case 2:
 				echo '<label for="inputState">Carrera</label>
-				<select id="nivel" class="form-control" name="carrera">
+				<select id="carrera" class="form-control" name="carrera">
 				<option selected>Seleccione</option>
 				<option value="Maestría en Administración de los servicios de la salud">Maestría en Administración de los servicios de la salud</option>
 				<option value="Maestría en Administración de Negocios">Maestría en Administración de Negocios</option>
@@ -106,7 +137,7 @@ class evaluacion extends CI_Controller {
 			//Doctorado
 			case 3:
 				echo '<label for="inputState">Carrera</label>
-				<select id="nivel" class="form-control" name="carrera">
+				<select id="carrera" class="form-control" name="carrera">
 				<option selected>Seleccione</option>
 				<option value="Doctorado en Ciencias Administrativas">Doctorado en Ciencias Administrativas</option>
 				<option value="Doctorado en Ciencias Administrativas con Línea en Administración Pública y Gobierno">Doctorado en Ciencias Administrativas con Línea en Administración Pública y Gobierno</option>
@@ -117,14 +148,14 @@ class evaluacion extends CI_Controller {
 			break;
 			case 'Seleccione':
 				echo '<label for="inputState">Carrera</label>
-				<select id="nivel" class="form-control" name="carrera">
+				<select id="carrera" class="form-control" name="carrera">
 				<option selected>Seleccione un nivel</option>
 				</select>';
 			break;
 			//Doctorado
 			default:
 				echo '<label for="inputState">Carrera</label>
-				<select id="nivel" class="form-control" name="carrera">
+				<select id="carrera" class="form-control" name="carrera">
 				<option selected>Seleccionar</option>
 				<option value="2">Seleccione un nivel</option>
 				</select>';

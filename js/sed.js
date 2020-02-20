@@ -1,4 +1,4 @@
-﻿var dominio="http://localhost/evalua";
+﻿var dominio="http://localhost/encuestas";
 //var dominio ="http://localhost/sapc";
 
 
