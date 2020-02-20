@@ -26,39 +26,14 @@ $('body').on('click','#regisevaluacion', function() {
     $('.modal-dialog').load(dominio+"/evaluacion/registrar_eva",function(){
             //$('#myModal').modal();
         });
-    });
-//Funcion para obtener la sede y cambiar los niveles de estudio
-$('body').on('change', '#sede', function() {
-    select = document.getElementById("sede"), //El <select>
-    value = select.value, //El valor seleccionado
-    console.log(value);
-      $.post(dominio+"/evaluacion/cambionivel/"+value, {
-            }, function(data) {
-            $("#niveles").html(data);
-            });
-
-});
-
-//Funcion para obtener la sede y cambiar las modalidades
-$('body').on('change', '#sede', function() {
-    select = document.getElementById("sede"), //El <select>
-    value = select.value, //El valor seleccionado
-    console.log(value);
-      $.post(dominio+"/evaluacion/cambiomodalidad/"+value, {
-            }, function(data) {
-            $("#modalidades").html(data);
-            });
-
 });
 
 //Funcion para obtener la modalidad y el nivel para mostrar las carreras disponibles
-$('body').on('change', '#modalidad', function() {
-    var select = new Array(3);
-    select [0]= document.getElementById("sede"), //El <select>
-    select [1]= document.getElementById("nivel"), //El <select>
-    select [2]= document.getElementById("modalidad"), //El <select>
+$('body').on('change', '#nivel', function() {
+    select= document.getElementById("nivel"), //El <select>
+    value=select.value,
     console.log(select.length);
-      $.post(dominio+"/evaluacion/cambiocarreras/"+select,{
+      $.post(dominio+"/evaluacion/cambiocarreras/"+value,{
             }, function(data) {
             $("#carreras").html(data);
             });

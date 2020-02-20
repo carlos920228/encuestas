@@ -59,72 +59,66 @@ class evaluacion extends CI_Controller {
 		
     }
 
-	public function cambionivel($id){
+	public function cambiocarreras($id){
 		switch ($id) {
-			//Banderilla
+			//Licenciatura
 			case 1:
-				echo '<label >Nivel</label>
+				echo '<label for="inputState">Carrera</label>
 				<select id="nivel" class="form-control" name="nivel">
-				<option selected>Seleccionar</option>
-				<option value="1">Licenciatura</option>
-				<option value="2">Maestría</option>
-				<option value="3">Doctorado</option>
+				<option selected>Selecione</option>
+				<option value="Lic. en Administración de empresas">Lic. en Administración de empresas</option>
+				<option value="Lic. en Arquitectura y Urbanismo">Lic. en Arquitectura y Urbanismo</option>
+				<option value="Lic. en Comunicación y Medios Digitales">Lic. en Comunicación y Medios Digitales</option>
+				<option value="Lic. en Contaduría y Finanzas">Lic. en Contaduría y Finanzas</option>
+				<option value="Lic. en Derecho">Lic. en Derecho</option>
+				<option value="Lic. en Educación Física, Recreación y Deporte">Lic. en Educación Física, Recreación y Deporte</option>
+				<option value="Lic. en Ingeniería Industrial">Lic. en Ingeniería Industrial</option>
+				<option value="Lic. en Pedagogía">Lic. en Pedagogía</option>
+				<option value="Lic. en Psicología Apliacada">Lic. en Psicología Apliacada</option>
+				<option value="Lic. en Sistemas y Tecnoogías de información">Lic. en Sistemas y Tecnoogías de información</option>
 				</select>';
 			break;
-			//Sin seleccionar Sede
+			//Maestría
+			case 2:
+				echo '<label for="inputState">Carrera</label>
+				<select id="nivel" class="form-control" name="nivel">
+				<option selected>Seleccione</option>
+				<option value="Maestría en Administración de los servicios de la salud">Maestría en Administración de los servicios de la salud</option>
+				<option value="Maestría en Administración de Negocios">Maestría en Administración de Negocios</option>
+				<option value="Maestría en Administración Pública>Maestría en Administración Pública</option>
+				<option value="Maestría en Derecho Constitucional y Administrativo">Maestría en Derecho Constitucional y Administrativo</option>
+				<option value="Maestría en Educación">Maestría en Educación</option>
+				<option value="Maestría en Educación para la salud">Maestría en Educación para la salud</option>
+				<option value="Maestría en Gestión Educativa">Maestría en Gestión Educativa</option>
+				<option value="Maestría en Ingeniería y Desarrollo de Software">Maestría en Ingeniería y Desarrollo de Software</option>
+				</select>';
+			break;
+			//Doctorado
+			case 3:
+				echo '<label for="inputState">Carrera</label>
+				<select id="nivel" class="form-control" name="nivel">
+				<option selected>Seleccione</option>
+				<option value="Doctorado en Ciencias Administrativas">Doctorado en Ciencias Administrativas</option>
+				<option value="Doctorado en Ciencias Administrativas con Línea en Administración Pública y Gobierno">Doctorado en Ciencias Administrativas con Línea en Administración Pública y Gobierno</option>
+				<option value="Doctorado en Ciencias Administrativas con Línea en Economía y Empresa">Doctorado en Ciencias Administrativas con Línea en Economía y Empresa</option>
+				<option value="Doctorado en Ciencias Administrativas con Línea en Educación">Doctorado en Ciencias Administrativas con Línea en Educación</option>
+				<option value="Doctorado en Ciencias Administrativas con Línea en Gestión de Sistemas de Salud">Doctorado en Ciencias Administrativas con Línea en Gestión de Sistemas de Salud</option>
+				</select>';
+			break;
 			case 'Seleccione':
-				echo '<label ">Nivel</label>
+				echo '<label for="inputState">Carrera</label>
 				<select id="nivel" class="form-control" name="nivel">
-				<option selected>Seleccione una sede</option>
+				<option selected>Seleccione un nivel</option>
 				</select>';
 			break;
-			//Sedes Cosamaloapan, Tuxpan, Poza Rica, Veracruz,
+			//Doctorado
 			default:
-				echo '<label >Nivel</label>
+				echo '<label for="inputState">Carrera</label>
 				<select id="nivel" class="form-control" name="nivel">
 				<option selected>Seleccionar</option>
-				<option value="2">Maestría</option>
+				<option value="2">Seleccione un nivel</option>
 				</select>';
 			break;
-		}
-	}
-
-	public function cambiomodalidad($id){
-		switch ($id) {
-			//Banderilla
-			case 1:
-				echo '<label >Modalidad</label>
-				<select id="modalidad" class="form-control" name="modalidad">
-				<option selected>Seleccionar</option>
-				<option value="1">Presencial</option>
-				<option value="2">Mixto</option>
-				<option value="3">Blended</option>
-				</select>';
-			break;
-			//Sin seleccionar
-			case 'Seleccione':
-				echo '<label >Nivel</label>
-				<select id="nivel" class="form-control" name="nivel">
-				<option selected>Seleccione una sede</option>
-				</select>';
-			break;
-			//Sedes Cosamaloapan, Tuxpan, Poza Rica, Veracruz,
-			default:
-				echo '<label >Modalidad</label>
-				<select id="modalidad" class="form-control" name="modalidad">
-				<option selected>Seleccionar</option>
-				<option value="2">Presencial</option>
-				</select>';
-			break;
-		}
-	}
-
-	public function cambiocarreras($datos){
-		//si es banderilla
-		if ($datos[0]==1) {
-			echo '<label >Banderilla</label>';
-		}elseif ($datos[0==2]) {//si es 
-			echo '<label >Otro</label>';
 		}
 	}
 
